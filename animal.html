@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Virtual Hug 🧸</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f5e6da, #f8c8dc);
+      color: #5a4a42;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.8em;
+      margin-bottom: 5px;
+    }
+
+    .subtitle {
+      color: #7a6a62;
+      margin-bottom: 25px;
+    }
+
+    svg {
+      width: 200px;
+      margin: 20px 0;
+    }
+
+    .arm {
+      transform-origin: top center;
+      animation: hug 2s infinite alternate ease-in-out;
+    }
+
+    .arm.left {
+      animation-name: hug-left;
+    }
+
+    .arm.right {
+      animation-name: hug-right;
+      animation-delay: 1s;
+    }
+
+    @keyframes hug-left {
+      0% { transform: rotate(0deg) translate(0, 0); }
+      50% { transform: rotate(30deg) translate(15px, 10px); }
+      100% { transform: rotate(15deg) translate(10px, 5px); }
+    }
+
+    @keyframes hug-right {
+      0% { transform: rotate(0deg) translate(0, 0); }
+      50% { transform: rotate(-30deg) translate(-15px, 10px); }
+      100% { transform: rotate(-15deg) translate(-10px, 5px); }
+    }
+
+    .message {
+      font-size: 1.4em;
+      margin: 15px 0 20px;
+    }
+
+    .loading-text {
+      font-size: 0.9em;
+      color: #888;
+      margin-bottom: 10px;
+    }
+
+    .loading-bar {
+      width: 220px;
+      height: 10px;
+      background: #eee;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto 20px;
+    }
+
+    .loading-fill {
+      height: 100%;
+      width: 0;
+      background: #f8c8dc;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #fff;
+      border-radius: 20px;
+      text-decoration: none;
+      color: #5a4a42;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .back:hover {
+      background: #f8c8dc;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>Virtual Hug 🧸</h1>
+  <p class="subtitle">Because I can't hug you right now...</p>
+
+  <svg viewBox="0 0 200 200">
+    <circle cx="100" cy="120" r="50" fill="#8B5E3C" />
+    <circle cx="100" cy="60" r="35" fill="#8B5E3C" />
+    <circle cx="75" cy="30" r="10" fill="#8B5E3C" />
+    <circle cx="125" cy="30" r="10" fill="#8B5E3C" />
+    <rect class="arm left" x="30" y="90" width="20" height="60" rx="10" fill="#8B5E3C"/>
+    <rect class="arm right" x="150" y="90" width="20" height="60" rx="10" fill="#8B5E3C"/>
+    <circle cx="90" cy="55" r="5" fill="#000" />
+    <circle cx="110" cy="55" r="5" fill="#000" />
+    <circle cx="100" cy="70" r="5" fill="#000" />
+  </svg>
+
+  <div class="message">Sending you the biggest hug ever 🤍</div>
+
+  <div class="loading-text" id="loading-text">Preparing your hug...</div>
+
+  <div class="loading-bar">
+    <div class="loading-fill" id="loading-fill"></div>
+  </div>
+
+  <a href="index.html" class="back">⬅ Back</a>
+
+  <script>
+    const fill = document.getElementById('loading-fill');
+    const text = document.getElementById('loading-text');
+    let width = 0;
+
+    const interval = setInterval(() => {
+      width += 1;
+      fill.style.width = width + '%';
+
+      if (width >= 100) {
+        clearInterval(interval);
+        text.textContent = 'Hug delivered 🤗💖';
+      }
+    }, 30);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f5e6da, #f8c8dc);
+      color: #5a4a42;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    header p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      opacity: 0.8;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .box {
+      background: white;
+      padding: 35px 20px;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #5a4a42;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      min-height: 180px;
+    }
+
+    .box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .box h2 {
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      margin-bottom: 10px;
+    }
+
+    .box p {
+      font-size: 0.95rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 25px 15px;
+      font-size: 0.95rem;
+    }
+
+    /* Tablets */
+    @media (max-width: 768px) {
+      header {
+        padding: 50px 15px 25px;
+      }
+
+      .container {
+        padding: 15px;
+        gap: 16px;
+      }
+
+      .box {
+        min-height: 160px;
+        padding: 28px 18px;
+      }
+    }
+
+    /* Phones */
+    @media (max-width: 480px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .box {
+        min-height: 140px;
+      }
+
+      .box p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Happy Birthday, Mera Sohna 💕</h1>
+    <p>Click a box to explore your surprise</p>
+  </header>
+
+  <div class="container">
+
+    
+
+    <a href="songs.html" class="box">
+      <h2>🎵 Songs</h2>
+      <p>Songs that remind me of you</p>
+    </a>
+
+    <!-- <a href="marriage.html" class="box">
+      <h2>💍 Marriage</h2>
+      <p>Something special for our future</p>
+    </a> -->
+
+    <a href="letter.html" class="box">
+      <h2>💌 Letter</h2>
+      <p>A message from my heart</p>
+    </a>
+
+    <a href="game.html" class="box">
+      <h2>🎮 Quiz</h2>
+      <p>A little fun for you</p>
+    </a>
+
+    <a href="animal.html" class="box">
+      <h2>🐾 Animal</h2>
+      <p>A cute surprise for you</p>
+    </a>
+
+    <!-- <a href="ship.html" class="box">
+      <h2>🚢 Ship</h2>
+      <p>A little journey for us</p>
+    </a> -->
+
+    <!-- <a href="random.html" class="box">
+      <h2>🎲 Random</h2>
+      <p>A surprise you didn’t expect</p>
+    </a> -->
+
+  </div>
+
+  <footer>
+    <p>Made with love ❤️</p>
+  </footer>
+
+</body>
+</html>

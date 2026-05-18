@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Songs That Remind Me of You 🎵</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5e6da, #f8c8dc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #5a4a42;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #7a6a62;
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .card {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      backdrop-filter: blur(10px);
+    }
+
+    .text {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .spotify-wrapper {
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 380px;
+      border: none;
+      display: block;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #5a4a42;
+      background: white;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.25s ease;
+    }
+
+    .back:hover {
+      background: #f8c8dc;
+      transform: translateY(-2px);
+    }
+
+    /* Tablet */
+    @media (max-width: 768px) {
+      .container {
+        max-width: 92%;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      iframe {
+        height: 360px;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      body {
+        padding: 14px;
+      }
+
+      .container {
+        max-width: 100%;
+      }
+
+      .card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+      }
+
+      .text {
+        font-size: 1rem;
+        margin-bottom: 16px;
+      }
+
+      iframe {
+        height: 352px;
+      }
+
+      .back {
+        width: 100%;
+        max-width: 180px;
+      }
+    }
+
+    /* Small phones */
+    @media (max-width: 360px) {
+      iframe {
+        height: 300px;
+      }
+
+      .card {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <p class="subtitle">
+      Every song feels a little more special because of you
+    </p>
+
+    <div class="card">
+
+      <div class="text">
+        <i>23 songs that remind me of you 💖</i>
+      </div>
+
+      <div class="spotify-wrapper">
+        <iframe
+          src="https://open.spotify.com/embed/playlist/5aMO7ppOaZRWHAO5NXf7q7?utm_source=generator"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back">⬅ Back</a>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Quiz Game 💕</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #f5e6da, #f8c8dc);
+      color: #5a4a42;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+
+    input {
+      width: 80%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: #f8c8dc;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #f5a9c2;
+    }
+
+    .progress {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .surprises button {
+      display: block;
+      width: 80%;
+      margin: 10px auto;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <h1>💕 Our Quiz Game</h1>
+  <p>Get all 5 correct in a row to unlock a surprise</p>
+
+  <div id="game">
+
+    <div class="question" id="question">Loading...</div>
+    <input type="text" id="answer" placeholder="Your answer here">
+
+    <br>
+    <button onclick="checkAnswer()">Submit</button>
+
+    <div class="progress" id="progress">Streak: 0 / 5</div>
+    <div class="result" id="result"></div>
+
+  </div>
+
+  <div id="surprises" class="hidden">
+    <h2>🎉 You did it!</h2>
+    <p>Choose your surprise:</p>
+
+    <div class="surprises">
+      <button onclick="pick('date')">💖 i eat you with either syrup or honey </button>
+      <button onclick="pick('letter')">💌 i bind you completely...you do nothing</button>
+      <button onclick="pick('hug')">🧸 i can use ice however i want on you.. </button>
+    </div>
+
+    <div id="finalMessage" class="result"></div>
+  </div>
+
+  <a href="index.html"><button>⬅ Back</button></a>
+
+</div>
+
+<script>
+  const questions = [
+    { q: "When did we first kiss", a: "23 november" },
+    { q: "Where did we first meet?", a: "school" },
+    { q: "What do I call you most often?", a: "sohneya" },
+    { q: "What do i like the most about you?", a: "love" },
+    { q: "Do I love you?", a: "yes" }
+  ];
+
+  let index = 0;
+  let streak = 0;
+
+  const questionEl = document.getElementById("question");
+  const answerEl = document.getElementById("answer");
+  const progressEl = document.getElementById("progress");
+  const resultEl = document.getElementById("result");
+  const game = document.getElementById("game");
+  const surprises = document.getElementById("surprises");
+
+  function loadQuestion() {
+    questionEl.textContent = questions[index].q;
+    answerEl.value = "";
+  }
+
+  function checkAnswer() {
+    const userAnswer = answerEl.value.trim().toLowerCase();
+    const correct = questions[index].a.toLowerCase();
+
+    if (userAnswer === correct || correct === "23 november") {
+      streak++;
+      index++;
+
+      resultEl.textContent = "Correct 💖";
+
+      if (streak === 5) {
+        game.classList.add("hidden");
+        surprises.classList.remove("hidden");
+      } else {
+        if (index >= questions.length) index = 0;
+        loadQuestion();
+      }
+
+    } else {
+      streak = 0;
+      resultEl.textContent = "Wrong 😅 streak reset!";
+    }
+
+    progressEl.textContent = `Streak: ${streak} / 5`;
+  }
+
+  function pick(choice) {
+    const msg = document.getElementById("finalMessage");
+
+    if (choice === "date") {
+      msg.textContent = "💖 let me know wether you want syrup or honey!";
+    }
+    if (choice === "letter") {
+      msg.textContent = "💌 i'll suprise you";
+    }
+    if (choice === "hug") {
+      msg.textContent = "🧸 ps: don't tell me to stop ;)!";
+    }
+  }
+
+  loadQuestion();
+</script>
+
+</body>
+</html>
